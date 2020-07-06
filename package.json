@@ -1,0 +1,27 @@
+{
+  "name": "firewatch",
+  "version": "0.1.0",
+  "description": "A file watching program which uploads an updated file to Google Firebase Cloud Storage.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node -r esm index.js",
+    "test": "node_modules/.bin/mocha $(find ./ -name '*.test.js') --recursive -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rapsealk/firewatch-js.git"
+  },
+  "author": "rapsealk",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/rapsealk/firewatch-js/issues"
+  },
+  "homepage": "https://github.com/rapsealk/firewatch-js#readme",
+  "dependencies": {
+    "esm": "^3.2.25",
+    "firebase-admin": "^8.13.0"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0"
+  }
+}
