@@ -16,10 +16,13 @@ const dir = process.env.npm_config_dir || '.';
 console.log('firewatch is watching:', dir);
 
 fs.watch(dir, (eventType, filename) => {
+    if (!filename.endsWith('.wowsreplay'))
+        return;
     if (eventType == 'change') {
         const path = [dir, filename].join('/');
         console.log('path:', path);
-        admin.storage().bucket().upload(path)
+        const destination = filename.split('_').shift() + '/' + filename;
+        admin.storage().bucket().upload(path, { destination })
             .then(response => {
                 console.log(`Succeed to upload ${path} to Firebase: ${response}`);
             })
